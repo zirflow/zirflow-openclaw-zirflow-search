@@ -1,4 +1,6 @@
 # 🔍 Zirflow Research Agent
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Python](https://img.shields.io/badge/Python-3.10+-green.svg)](https://www.python.org/) [![Status](https://img.shields.io/badge/Status-Public-brightgreen.svg)]
+
 
 Multi-source AI search system with tiered architecture — search once, get results from Tavily AI + Reddit + GitHub + V2EX + RSS + YouTube + WeChat simultaneously.
 
