@@ -34,6 +34,25 @@ python3 scripts/search.py "OpenClaw agent" --tier 2 --engine github
 python3 scripts/search.py "AI startup" --tier 1 --topic news --days 7
 ```
 
+
+## CLI Parameters
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `query` | Search query or URL (positional) | — |
+| `--all` | 🔥 Multi-platform simultaneous search | off |
+| `--fetch-url` | Force URL fetch (Tier 0) | auto |
+| `--tier <0-4>` | Specify starting tier | auto |
+| `--engine` | Force platform (reddit/github/v2ex/rss/wechat) | auto |
+| `--days <n>` | Time range in days | 7 |
+| `--max <n>` | Max results | 10 |
+| `--deep` | Tavily deep research mode | off |
+| `--topic` | Tavily topic: `general` or `news` | general |
+| `--lang` | Language: `auto`, `cn`, or `en` | auto |
+| `--output` | Output format: `text` or `json` | text |
+| `--no-tier1` | Skip Tavily, use free platforms only | off |
+
+
 ## Setup
 
 ```bash
@@ -134,7 +153,8 @@ After learning, you should be able to answer:
 ```
 zirflow-openclaw-zirflow-search/
 ├── SKILL.md              ← Core documentation (required reading)
-├── README.md             ← This file	scripts/
+├── README.md             ← This file
+scripts/
 │   └── search.py         ← Search entry script
 ├── config.env.template   ← Key config template
 └── tests/                ← Test cases
@@ -146,7 +166,7 @@ zirflow-openclaw-zirflow-search/
 |---------|----------|
 | README unclear | Read SKILL.md Tier decision tree first |
 | API Key error | Check `~/.openclaw/env` is written correctly |
-| Tavily error | Use `--skip-tier1` to switch to free platforms |
+| Tavily error | Use `--no-tier1` to switch to free platforms |
 | Script error | Ensure Python ≥ 3.10 |
 
 ### 🚀 After Learning

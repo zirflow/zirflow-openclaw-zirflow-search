@@ -37,7 +37,7 @@ python3 scripts/search.py "AI Agent" --all --max 10
 python3 scripts/search.py "OpenClaw agent" --tier 2 --engine github
 
 # 新聞篩選
-python3 scripts/search.py "AI startup" --tier 1 --topic news --days 7
+| `--topic` | Tavily 話題：`general` 或 `news` | general |
 ```
 
 ---
@@ -80,76 +80,20 @@ search "AI Agent 創業融資 2026"
 
 | 參數 | 說明 | 默認值 |
 |------|------|------|
-| `--all` | 🔥 多平臺聯動搜索，所有平臺同時搜 | 關閉 |
+| `query` | 搜尋詞或 URL（位置參數） | — |
+| `--all` | 🔥 多平臺聯動搜尋，所有平臺同時搜 | 關閉 |
 | `--fetch-url` | 強制 Tier 0 URL 抓取 | 自動判斷 |
 | `--tier <0-4>` | 指定起始層級 | 自動 |
 | `--engine` | 強制平臺路由 (reddit/github/v2ex/rss/wechat) | auto |
-| `--max <n>` | 最大結果數 | 10 |
 | `--days <n>` | 時間範圍（天）| 7 |
+| `--max <n>` | 最大結果數 | 10 |
 | `--deep` | Tavily 深度研究模式 | 關閉 |
-| `--topic news` | Tavily 新聞話題 | general |
-| `--skip-tier1` | 跳過 Tavily（只用免費平臺）| false |
+| `--topic` | Tavily 話題：`general` 或 `news` | general |
+| `--lang` | 語言偏好：`auto`、`cn`、`en` | auto |
+| `--output` | 輸出格式：`text` 或 `json` | text |
+| `--no-tier1` | 跳過 Tavily（只用免費平臺）| false |
 
----
-
-## 🗂️ 項目結構
-
-```
-zirflow-openclaw-zirflow-search/
-├── SKILL.md              ← 核心文檔（必讀）
-├── README.md             ← 英文文檔
-├── README_ZH.md         ← 簡體中文文檔
-├── README_TW.md         ← 繁體中文文檔
-├── scripts/
-│   └── search.py        ← 搜索入口腳本
-├── config.env.template   ← Key 配置模板
-└── tests/               ← 測試用例
-```
-
----
-
-## 🤖 AI Agent 自學指南
-
-本節幫助其他 AI Agent 自主學習安裝和使用 Zirflow Search。
-
-### 🎯 學習任務
-
-學習和安裝本項目：
-
-**項目地址**：https://github.com/zirflow/zirflow-openclaw-zirflow-search
-
-### 📋 學習步驟（按順序執行）
-
-**第一步 — 閱讀 README**
-打開上方鏈接，閱讀 README_ZH.md（簡體中文版）。
-
-**第二步 — 閱讀 SKILL.md**
-在項目根目錄找到 SKILL.md 並閱讀。包含：
-- Tier 0/1/2/3/4 完整架構和適用場景
-- 每個層級的速度、成本、數據來源
-- 決策流程圖
-- 各平臺觸發關鍵詞
-- 可信度分級說明
-
-**第三步 — 安裝依賴**
-```bash
-pip install tavily requests feedparser yt-dlp
-```
-
-**第四步 — 配置 API Keys**
-1. 在 https://tavily.com 註冊獲取免費 API Key（每天 1000 次）
-2. 寫入 `~/.openclaw/env`：
-   ```
-   TAVILY_API_KEY_1=你的key
-   ```
-
-**第五步 — 運行測試**
-```bash
-# 標準搜索
-python3 ~/.openclaw/skills/zirflow-search/scripts/search.py "AI Agent 趨勢 2026"
-
-# 多平臺聯動搜索（推薦複雜研究使用）
-python3 ~/.openclaw/skills/zirflow-search/scripts/search.py "AI Agent" --all --max 10
+ls/zirflow-search/scripts/search.py "AI Agent" --all --max 10
 ```
 
 ### ✅ 學習成果檢驗
@@ -179,7 +123,7 @@ scripts/
 |------|---------|
 | README 讀不懂 | 先讀 SKILL.md 的 Tier 決策樹 |
 | API Key 報錯 | 檢查 `~/.openclaw/env` 是否寫入正確 |
-| Tavily 報錯 | 用 `--skip-tier1` 切換免費平臺 |
+| Tavily 報錯 | 用 `--no-tier1` 切換免費平臺 |
 | 腳本報錯 | 確保 Python ≥ 3.10 |
 
 ### 🚀 學會之後

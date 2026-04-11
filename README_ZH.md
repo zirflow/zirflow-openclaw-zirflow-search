@@ -87,8 +87,10 @@ search "AI Agent 创业融资 2026"
 | `--max <n>` | 最大结果数 | 10 |
 | `--days <n>` | 时间范围（天）| 7 |
 | `--deep` | Tavily 深度研究模式 | 关闭 |
-| `--topic news` | Tavily 新闻话题 | general |
-| `--skip-tier1` | 跳过 Tavily（只用免费平台）| false |
+| `--topic` | Tavily 话题：`general` 或 `news` | general |
+| `--lang` | 语言偏好：`auto`、`cn`、`en` | auto |
+| `--output` | 输出格式：`text` 或 `json` | text |
+| `--no-tier1` | 跳过 Tavily（只用免费平台）| false |
 
 ---
 
@@ -179,7 +181,7 @@ scripts/
 |------|---------|
 | README 读不懂 | 先读 SKILL.md 的 Tier 决策树 |
 | API Key 报错 | 检查 `~/.openclaw/env` 是否写入正确 |
-| Tavily 报错 | 用 `--skip-tier1` 切换免费平台 |
+| Tavily 报错 | 用 `--no-tier1` 切换免费平台 |
 | 脚本报错 | 确保 Python ≥ 3.10 |
 
 ### 🚀 学会之后
